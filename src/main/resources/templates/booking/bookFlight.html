@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewfport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Usman Gee">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mycss.css}">
+
+
+
+    <title>Home - Fly Right Airline</title>
+</head>
+
+<body class="bg-img">
+<!-- Navigations -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark top-nav">
+    <div class="container text-light">
+        <a class="navbar-brand" th:href="@{/}"><img class="logo-img" src="images/logo.png"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navber-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/user/sign_up}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/feedback/contact}">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Aircraft
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" th:href="@{/aircrafts/create}">Create Aircraft</a>
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">All Aircrafts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Flight
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">Create Flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/list}">All Flights</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Booking
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/}">Book A Flight</a>
+                        <a class="dropdown-item" th:href="@{/bookings/list}">All Bookings</a>
+                        <a class="dropdown-item" th:href="@{/passengers/list}">All Passengers</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<!-- Header with carousel -->
+<header>
+
+</header>
+
+<main class="main-margin-top">
+    <div>
+        <h1 class="h3 mb-3 font-weight-normal text-center">...WELCOME TO FLY RIGHT AIRLINE...</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="row mt-5 mb-5">
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="header-title">Book Flight</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form method="post" th:action="${'/bookings/process'}" th:object="${flight}">
+                            <div>
+                                <label for="firstName">First Name:</label>
+                                <input type="text" class="form-control" name="firstName" placeholder="John" id="firstName" required/>
+                            </div>
+                            <div>
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" class="form-control" name="lastName" placeholder="Smith" id="lastName" required/>
+                            </div>
+                            <div>
+                                <label for="age">Age:</label>
+                                <input type="number" class="form-control" name="age" placeholder="18" id="age" required/>
+                            </div>
+                            <div>
+                                <label for="email">Email Address:</label>
+                                <input type="email" class="form-control" name="email" placeholder="example@something.com" id="email" required/>
+                            </div>
+                            <div>
+                                <label for="address">Address:</label>
+                                <input type="text" class="form-control" name="address" placeholder="1, Smith str, Ikeja, Lagos." id="address" />
+                            </div>
+                            <div>
+                                <label for="phone">Phone Number:</label>
+                                <input type="text" class="form-control" name="phone" placeholder="eg:+234-803-1121212" id="phone" required/>
+                            </div>
+
+                            <input type="hidden" name="id" th:field="*{id}"/>
+<!--                            <input type="hidden" name="takeOff_Point" value="<%=f.getTakeOff_Point()%>"/>-->
+<!--                            <input type="hidden" name="destination" value="<%=f.getDestination()%>"/>-->
+<!--                            <input type="hidden" name="takeOff_time" value="<%=f.getTakeOff_Time()%>"/>-->
+<!--                            <input type="hidden" name="availableSeats" value="<%=f.getAvailableSeats()%>"/>-->
+
+                            <p class="text-center mt-3">*****************************************************</p>
+
+                            <div class="form-group">
+                                <label for="payment">Payment Option</label>
+                                <select name="" id="payment" class="form-control">
+                                    <option value="">-- Select Method--</option>
+                                    <option value="Master Card">Master Card</option>
+                                    <option value="Transfer">Transfer</option>
+                                    <option value="E-Payment">E-Payment</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="master_card">Master Card No.:</label>
+                                <input type="number" id="master_card" name="master_card" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cvv">cvv No.:</label>
+                                <input type="number" id="cvv" name="cvv" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pin">Pin:</label>
+                                <input type="password" id="pin" name="password" class="form-control" size="6">
+                            </div>
+
+                            <input type="submit" value="Proceed to Payment" name="submitDetails"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="text-center flight-summary h3 font-weight-normal">
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <th>
+                                FLIGHT SUMMARY
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>FLIGHT NUMBER</td>
+                            <td th:text="${flight.getFlightNumber()}"></td>
+                        </tr>
+                        <tr>
+                            <td>TAKE OFF POINT</td>
+                            <td th:text="${flight.getTakeOffPoint()}"></td>
+                        </tr>
+                        <tr>
+                            <td>DESTINATION</td>
+                            <td th:text="${flight.getDestinationPoint()}"></td>
+                        </tr>
+                        <tr>
+                            <td>TAKE OFF TIME</td>
+                            <td th:text="${flight.getTakeOffTime()}"></td>
+                        </tr>
+                        <tr>
+                            <td>LANDING TIME</td>
+                            <td th:text="${flight.getLandingTime()}"></td>
+                        </tr>
+                        <tr>
+                            <td>PRICE</td>
+                            <td th:text="${flight.getPrice()}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+</main>
+<footer class="fixed-bottom bg-dark">
+    <div class="container text-light">
+        <p class="text-center">&copy; 2020 &ndash; Fly Right Airline &ndash; All Right Reserved...</p>
+    </div>
+
+</footer>
+<script th:src="@{/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+
+</html>
+

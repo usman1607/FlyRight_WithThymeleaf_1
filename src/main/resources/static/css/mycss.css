@@ -1,0 +1,85 @@
+.logo-img {
+    width: 50%;
+}
+
+.bg-img  {
+    background-image: url(../images/plane2.png);
+    background-repeat: no-repeat;
+    background-size: fill;
+    opacity: 0.8;
+    background-attachment: fixed;
+}
+
+.top-nav {
+    color: green;
+}
+
+.main-margin-top {
+    margin-top: 100px;
+}
+
+.flight-summary {
+    border: 3px solid purple;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#payment {
+    width: 75%;
+}
+#master_card {
+    width: 75%;
+}
+
+#cvv {
+    width: 25%;
+}
+#pin {
+    width: 25%;
+}
+
+.form-signin {
+    width: 90%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    border: 2px solid blueviolet;
+    border-top-right-radius: 12px;
+	border-bottom-left-radius: 12px;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .centralize {
+      position: absolute;
+      width: auto;
+  }
+
+  #gender {
+    width: 50%;
+}
+
+#message {
+    width: 400px;
+}

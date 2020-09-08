@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewfport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Usman Gee">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/mycss.css}">
+
+
+
+    <title>Home - Fly Right Airline</title>
+</head>
+
+<body class="bg-img">
+<!-- Navigations -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark top-nav">
+    <div class="container text-light">
+        <a class="navbar-brand" th:href="@{/}"><img class="logo-img" src="images/logo.png"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navber-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/user/sign_up}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/feedback/contact}">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Aircraft
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" th:href="@{/aircrafts/create}">Create Aircraft</a>
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">All Aircrafts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Flight
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">Create Flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/list}">All Flights</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Booking
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/}">Book A Flight</a>
+                        <a class="dropdown-item" th:href="@{/bookings/list}">All Bookings</a>
+                        <a class="dropdown-item" th:href="@{/passengers/list}">All Passengers</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<!-- Header with carousel -->
+<header>
+
+</header>
+
+<main class="main-margin-top">
+
+    <div class="container">
+
+        <div class="row mt-5 mb-5">
+            <table class="table table-hover table-striped" >
+                <caption class="table-head">LIST OF AVAILABLE FLIGHTS</caption>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        FLIGHT NO.
+                    </th>
+
+                    <th>
+                        TAKE OFF POINT
+                    </th>
+
+                    <th>
+                        DESTINATION
+                    </th>
+
+                    <th>
+                        TAKE OFF TIME
+                    </th>
+
+                    <th>
+                        LANDING TIME
+                    </th>
+
+                    <th>
+                        PRICE
+                    </th>
+
+                    <th>
+                        BOOK FLIGHT
+                    </th>
+                </tr>
+
+                <tr th:each="row : *{available_flights}">
+                    <td th:text="${row.getId()}"></td>
+                    <td th:text="${row.getFlightNumber()}"></td>
+                    <td th:text="${row.getTakeOffPoint()}"></td>
+                    <td th:text="${row.getDestinationPoint()}"></td>
+                    <td th:text="${row.getTakeOffTime()}"></td>
+                    <td th:text="${row.getLandingTime()}"></td>
+                    <td th:text="${row.getPrice()}"></td>
+                    <td><a th:href="@{/Bookings/bookFlight/{id}(id=${row.getId()})}"><button class="btn-info" name="button">Book</button></a></td>
+                </tr>
+
+            </table>
+            <p><a th:href="@{/}">Go Back to Home Page</a> </p>
+
+        </div>
+
+    </div>
+
+
+
+</main>
+<footer class="fixed-bottom bg-dark">
+    <div class="container text-light">
+        <p class="text-center">&copy; 2020 &ndash; Fly Right Airline &ndash; All Right Reserved...</p>
+    </div>
+
+</footer>
+<script th:src="@{/jquery/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+
+</html>
